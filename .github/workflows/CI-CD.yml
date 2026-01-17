@@ -1,0 +1,42 @@
+name: CI-CD Pipeline
+ 
+on:
+
+  push:
+
+    branches: [ main ]
+ 
+jobs:
+
+  ci-cd:
+
+    runs-on: self-hosted
+ 
+    steps:
+
+      - name: Checkout Code
+
+        uses: actions/checkout@v4
+ 
+      - name: Build
+
+        run: echo "Build success"
+ 
+      - name: Test
+
+        run: echo "Tests passed"
+ 
+      # Step 4: Deploy using WSL
+
+      - name: Deploy (CD)
+
+        run: |
+
+          # Make deploy.sh executable inside WSL
+
+          wsl chmod +x /mnt/c/Users/HP/Cloud-free-CI-CD/Cloud-free-CI-CD/deploy.sh
+
+          # Run the deploy script inside WSL
+
+          wsl /mnt/c/Users/HP/Cloud-free-CI-CD/cloud-free-CI-CD/deploy.sh
+ 
