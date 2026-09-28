@@ -21,7 +21,8 @@ jobs:
       - name: Build
 
         run: echo "Build success"
- 
+     needs: 
+      - name: Build
       - name: Test
 
         run: echo "Tests passed"
